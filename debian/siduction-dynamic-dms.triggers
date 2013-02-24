@@ -1,0 +1,6 @@
+interest /etc/gdm3/Init
+interest /etc/lightdm
+interest /etc
+interest /etc/kde4/kdm
+
+

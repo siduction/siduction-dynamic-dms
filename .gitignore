@@ -1,0 +1,5 @@
+debian/files
+debian/siduction-dynamic-dms.debhelper.log
+debian/siduction-dynamic-dms.substvars
+debian/siduction-dynamic-dms/
+

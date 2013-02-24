@@ -1,0 +1,33 @@
+#!/bin/sh
+set -e
+
+case "$1" in 
+	remove|upgrade)
+	if [ -f "/etc/gdm3/Init/Default" ] ; then
+		if  grep -q 'detect-resolution' /etc/gdm3/Init/Default ; then
+			sed -i '/detect-resolution.*/d' "/etc/gdm3/Init/Default"
+		echo "exit 0" >> "/etc/gdm3/Init/Default"
+		fi
+	fi
+
+	if [ -f "/etc/lightdm/lightdm.conf" ] ; then
+		sed -i "s@display-setup-script=.*@\#display-setup-script=@" "/etc/lightdm/lightdm.conf"
+	fi
+
+	if [ -f "/etc/slim.conf" ] ; then
+		sed -i "s@sessionstart_cmd.*@\# sessionstart_cmd	some command@" "/etc/slim.conf"
+	fi
+
+	if [ -f "/etc/kde4/kdm/Xsetup" ] ; then
+		if grep -q 'detect-resolution' /etc/kde4/kdm/Xsetup ; then
+			sed -i '/detect-resolution.*/d' "/etc/kde4/kdm/Xsetup"
+		fi
+	fi
+	;;
+	*)
+	echo "postinst called with unknown argument '$1'" >&2
+	exit 1
+	;;
+esac
+
+#DEBHELPER#

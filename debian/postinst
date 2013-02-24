@@ -1,0 +1,77 @@
+#!/bin/sh
+set -e
+
+case "$1" in 
+	triggered|upgrade)
+	for trigger in $2; do
+		if ! [ -d $trigger ]; then
+		continue
+		fi
+	case $trigger in
+	/etc/gdm3/Init)
+	# This is triggered for gdm3 
+	if [ -f "/etc/gdm3/Init/Default" ] ; then
+		if ! grep -q 'detect-resolution' /etc/gdm3/Init/Default ; then
+			sed -i '/exit 0/d' "/etc/gdm3/Init/Default"
+			cat << "EOF" >> "/etc/gdm3/Init/Default"
+/usr/share/siduction-dynamic-dms/detect-resolution
+EOF
+		fi
+	fi
+	# This is triggered for lightdm 
+	;;
+	/etc/lightdm)
+	if [ -f "/etc/lightdm/lightdm.conf" ] ; then
+		sed -i "s@\#display-setup-script=.*@display-setup-script=/usr/share/siduction-dynamic-dms/detect-resolution@" "/etc/lightdm/lightdm.conf"
+	fi 
+	;;
+	# This is triggered for slim
+	/etc)
+	if [ -f "/etc/slim.conf" ] ; then
+		sed -i "s@\# sessionstart_cmd.*@sessionstart_cmd exec /bin/sh /usr/share/siduction-dynamic-dms/detect-resolution@" "/etc/slim.conf"
+	fi
+	;;
+	# This is triggered for kdm 
+	/etc/kde4/kdm)
+	if [ -f "/etc/kde4/kdm/Xsetup" ] ; then
+		if ! grep -q 'detect-resolution' /etc/kde4/kdm/Xsetup ; then
+			cat << "EOF" >> "/etc/kde4/kdm/Xsetup"
+/usr/share/siduction-dynamic-dms/detect-resolution
+EOF
+		fi
+	fi
+	;;
+	esac
+	done
+	;;
+	configure)
+	if [ -f "/etc/gdm3/Init/Default" ] ; then
+		if ! grep -q 'detect-resolution' /etc/gdm3/Init/Default ; then
+			sed -i '/exit 0/d' "/etc/gdm3/Init/Default"
+			cat << "EOF" >> "/etc/gdm3/Init/Default"
+/usr/share/siduction-dynamic-dms/detect-resolution
+EOF
+		fi
+	fi
+	if [ -f "/etc/lightdm/lightdm.conf" ] ; then
+		sed -i "s@\#display-setup-script=.*@display-setup-script=/usr/share/siduction-dynamic-dms/detect-resolution@" "/etc/lightdm/lightdm.conf"
+	fi 
+	if [ -f "/etc/slim.conf" ] ; then
+		sed -i "s@\# sessionstart_cmd.*@sessionstart_cmd exec /bin/sh /usr/share/siduction-dynamic-dms/detect-resolution@" "/etc/slim.conf"
+	fi
+	if [ -f "/etc/kde4/kdm/Xsetup" ] ; then
+		if ! grep -q 'detect-resolution' /etc/kde4/kdm/Xsetup ; then
+			cat << "EOF" >> "/etc/kde4/kdm/Xsetup"
+/usr/share/siduction-dynamic-dms/detect-resolution
+EOF
+		fi
+	fi
+
+	;;
+	*)
+	echo "postinst called with unknown argument '$1'" >&2
+	exit 1
+	;;
+esac
+
+#DEBHELPER#

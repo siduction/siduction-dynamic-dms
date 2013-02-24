@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ -f /etc/default/distro ]; then
+	. /etc/default/distro
+fi
+
+# Detects actual display resolution
+# Warning ... works only with a single video card 
+det_res=$(xrandr -q | head -n 1 | awk '{print $8.$9.$10}'| cut -d , -f1 )
+
+# Searches if exists a wallpaper with desired resolution and
+# make a new symlink for it if true as default wallpaper
+if [ -f "${FLL_WALLPAPER}/contents/images/${det_res}.png" ];then
+	ln -sf  ${FLL_WALLPAPER}/contents/images/${det_res}.png ${FLL_WALLPAPER}.png 
+fi
+
+exit 0
+
+
+

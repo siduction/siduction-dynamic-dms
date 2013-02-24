@@ -1,0 +1,17 @@
+Source: siduction-dynamic-dms
+Section: graphics
+Priority: extra
+Maintainer: Ovidiu Angelescu <convbsd@siduction.net>
+Uploaders: Alf Gaida <agaida@siduction.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.3
+Homepage: http://chili.siduction.org/projects/siduction/wiki/Siduction-dynamic-dms
+Vcs-Git: git://git.siduction.org/packages/siduction-repository/siduction-dynamic-dms.git
+Vcs-Browser: http://git.siduction.org/?p=packages/siduction-repository/siduction-dynamic-dms.git
+
+Package: siduction-dynamic-dms
+Depends: ${misc:Depends}
+Architecture: all
+Description: siduction resolution detect for dm's 
+ Pushes siduction resolution detect code for slim, lightdm, kdm and gdm3 
+ when are installed or upgraded
