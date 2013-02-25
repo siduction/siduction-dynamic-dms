@@ -1,5 +1,9 @@
-siduction-dynamic-dms (0.1) UNRELEASED; urgency=low
+siduction-dynamic-dms (0.1) unstable; urgency=low
 
+  [ Ovidiu Angelescu ]
   * Initial Release.
 
- -- Ovidiu Angelescu <convbsd@siduction.net>  Sun, 24 Feb 2013 22:15:18 +0200
+  [ Alf Gaida ]
+  * rebouild closes #1090 
+
+ -- Alf Gaida <agaida@siduction.org>  Sun, 24 Feb 2013 22:23:16 +0100
