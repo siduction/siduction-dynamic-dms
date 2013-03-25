@@ -1,3 +1,9 @@
+siduction-dynamic-dms (0.2) UNRELEASED; urgency=low
+
+  * Added support for razor qt too 
+
+ -- Ovidiu Angelescu <convbsd@siduction.net>  Mon, 25 March 2013 15:35:16 +0200
+
 siduction-dynamic-dms (0.1) unstable; urgency=low
 
   [ Ovidiu Angelescu ]
