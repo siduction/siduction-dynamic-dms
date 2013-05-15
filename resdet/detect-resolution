@@ -13,12 +13,12 @@ razor_theme=$(echo ${FLL_WALLPAPER} | cut -d / -f 5)
 
 # Searches if exists a wallpaper with desired resolution and
 # make a new symlink for it if true as default wallpaper
-if [ -f "${FLL_WALLPAPER}/contents/images/${det_res}.png" ];then
-	ln -sf  ${FLL_WALLPAPER}/contents/images/${det_res}.png ${FLL_WALLPAPER}.png 
+if [ -f "${FLL_WALLPAPER}/contents/images/${det_res}.jpg" ];then
+	ln -sf  ${FLL_WALLPAPER}/contents/images/${det_res}.jpg ${FLL_WALLPAPER}.jpg 
 	# razor qt part
-	if [ -s /usr/share/razor/themes/${razor_theme}/1024x768.png ];then
-		ln -sf  ${FLL_WALLPAPER}/contents/images/${det_res}.png \
-		/usr/share/razor/themes/${razor_theme}/1024x768.png
+	if [ -s /usr/share/razor/themes/${razor_theme}/1024x768.jpg ];then
+		ln -sf  ${FLL_WALLPAPER}/contents/images/${det_res}.jpg \
+		/usr/share/razor/themes/${razor_theme}/1024x768.jpg
 	fi
 fi
 

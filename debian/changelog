@@ -1,3 +1,9 @@
+siduction-dynamic-dms (0.3) UNRELEASED; urgency=low
+
+  * changes for transition from png to jpg wallpaper format
+
+ -- Ovidiu Angelescu <convbsd@siduction.net>  Thu, 16 May 2013 00:37:08 +0300
+
 siduction-dynamic-dms (0.2) unstable; urgency=low
 
   [ Ovidiu Angelescu ]
