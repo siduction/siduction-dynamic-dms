@@ -1,3 +1,9 @@
+siduction-dynamic-dms (0.4) UNRELEASED; urgency=low
+
+  * changes to add siduction logo for gdm3
+
+ -- Ovidiu Angelescu <convbsd@siduction.org>  Thu, 12 Jan 2014 13:30:08 +0200
+
 siduction-dynamic-dms (0.3) UNRELEASED; urgency=low
 
   [ Ovidiu Angelescu ]

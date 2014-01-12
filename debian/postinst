@@ -18,6 +18,20 @@ case "$1" in
 EOF
 		fi
 	fi
+	;;
+	/etc/gdm3)
+	if [ -f "/etc/gdm3/greeter.gsettings" ] ; then
+	# Comment logo stuff in debian greeter.gsettings
+	# siduction logo it is pushed by siduction-gdm3-settings
+		for exp in logo fallback-logo ; do
+			if grep -q ${exp} /etc/gdm3/greeter.gsettings ; then
+				sed -i "s@^${exp}@#${exp}@" /etc/gdm3/greeter.gsettings
+			fi
+		done
+		if grep -q [org.gnome.login-screen] /etc/gdm3/greeter.gsettings ; then
+			sed -i "s@^\[org.gnome.login-screen\]@#[org.gnome.login-screen]@" /etc/gdm3/greeter.gsettings
+		fi
+	fi
 	# This is triggered for lightdm 
 	;;
 	/etc/lightdm)
@@ -53,6 +67,18 @@ EOF
 EOF
 		fi
 	fi
+	if [ -f "/etc/gdm3/greeter.gsettings" ] ; then
+	# Comment logo in debian greeter settings
+	# siduction logo it is pushed by siduction-gdm3-settings
+		for exp in  logo fallback-logo; do
+			if grep -q ${exp} /etc/gdm3/greeter.gsettings ; then
+				sed -i "s@^${exp}@#${exp}@" /etc/gdm3/greeter.gsettings
+			fi
+		done
+		if grep -q [org.gnome.login-screen] /etc/gdm3/greeter.gsettings ; then
+			sed -i "s@^\[org.gnome.login-screen\]@#[org.gnome.login-screen]@" /etc/gdm3/greeter.gsettings
+		fi
+	fi
 	if [ -f "/etc/lightdm/lightdm.conf" ] ; then
 		sed -i "s@\#display-setup-script=.*@display-setup-script=/usr/share/siduction-dynamic-dms/detect-resolution@" "/etc/lightdm/lightdm.conf"
 	fi 
@@ -74,4 +100,9 @@ EOF
 	;;
 esac
 
-#DEBHELPER#
+
+
+#[org.gnome.login-screen]
+#logo='/usr/share/icons/gnome/48x48/places/debian-swirl.png'
+#fallback-logo='/usr/share/icons/gnome/48x48/places/debian-swirl.png'
+

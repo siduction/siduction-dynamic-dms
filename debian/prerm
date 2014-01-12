@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 case "$1" in 
@@ -7,6 +7,18 @@ case "$1" in
 		if  grep -q 'detect-resolution' /etc/gdm3/Init/Default ; then
 			sed -i '/detect-resolution.*/d' "/etc/gdm3/Init/Default"
 		echo "exit 0" >> "/etc/gdm3/Init/Default"
+		fi
+	fi
+
+	if [ -f "/etc/gdm3/greeter.gsettings" ] ; then
+        # Uncomment logo stuff in debian greeter.gsettings
+		for exp in  logo fallback-logo ; do
+			if grep -q ^"#${exp}" /etc/gdm3/greeter.gsettings ; then
+				sed  -i  "s@^#${exp}@${exp}@" /etc/gdm3/greeter.gsettings
+			fi
+		done 
+		if grep -q  ^"#\[org.gnome.login-screen\]" /etc/gdm3/greeter.gsettings ; then
+			sed -i "s@^#\[org.gnome.login-screen\]@[org.gnome.login-screen]@" /etc/gdm3/greeter.gsettings
 		fi
 	fi
 
@@ -29,5 +41,3 @@ case "$1" in
 	exit 1
 	;;
 esac
-
-#DEBHELPER#

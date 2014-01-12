@@ -1,3 +1,4 @@
+interest /etc/gdm3
 interest /etc/gdm3/Init
 interest /etc/lightdm
 interest /etc
