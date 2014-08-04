@@ -1,3 +1,10 @@
+siduction-dynamic-dms (0.5) UNRELEASED; urgency=low
+
+  * changes to add siduction logo for gdm3 due to last gdm3 config files
+    ( now it's used greeter.dconf-defaults insttead of greeter.gsettings)
+
+ -- Ovidiu Angelescu <convbsd@siduction.org>  Mon, 4 Aug 2014 13:58:08 +0300
+
 siduction-dynamic-dms (0.4) UNRELEASED; urgency=low
 
   * changes to add siduction logo for gdm3
@@ -11,6 +18,13 @@ siduction-dynamic-dms (0.3) UNRELEASED; urgency=low
 
   [ Alf Gaida ]
   * closes #1221
+
+ -- Ovidiu Angelescu <convbsd@siduction.net>  Thu, 16 May 2013 00:37:08 +0300
+
+siduction-dynamic-dms (0.2) unstable; urgency=low
+
+  [ Ovidiu Angelescu ]
+  
 
  -- Ovidiu Angelescu <convbsd@siduction.net>  Thu, 16 May 2013 00:37:08 +0300
 

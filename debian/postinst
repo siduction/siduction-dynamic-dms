@@ -20,16 +20,16 @@ EOF
 	fi
 	;;
 	/etc/gdm3)
-	if [ -f "/etc/gdm3/greeter.gsettings" ] ; then
-	# Comment logo stuff in debian greeter.gsettings
+	if [ -f "/etc/gdm3/greeter.dconf-defaults" ] ; then
+	# Comment logo stuff in debian greeter.dconf-defaults
 	# siduction logo it is pushed by siduction-gdm3-settings
 		for exp in logo fallback-logo ; do
-			if grep -q ${exp} /etc/gdm3/greeter.gsettings ; then
-				sed -i "s@^${exp}@#${exp}@" /etc/gdm3/greeter.gsettings
+			if grep -q ${exp} /etc/gdm3/greeter.dconf-defaults ; then
+				sed -i "s@^${exp}@#${exp}@" /etc/gdm3/greeter.dconf-defaults
 			fi
 		done
-		if grep -q [org.gnome.login-screen] /etc/gdm3/greeter.gsettings ; then
-			sed -i "s@^\[org.gnome.login-screen\]@#[org.gnome.login-screen]@" /etc/gdm3/greeter.gsettings
+		if grep -q [org/gnome/login-screen] /etc/gdm3/greeter.dconf-defaults ; then
+			sed -i "s@^\[org/gnome/login-screen\]@#[org/gnome/login-screen]@" /etc/gdm3/greeter.dconf-defaults
 		fi
 	fi
 	# This is triggered for lightdm 
@@ -67,16 +67,16 @@ EOF
 EOF
 		fi
 	fi
-	if [ -f "/etc/gdm3/greeter.gsettings" ] ; then
+	if [ -f "/etc/gdm3/greeter.dconf-defaults" ] ; then
 	# Comment logo in debian greeter settings
 	# siduction logo it is pushed by siduction-gdm3-settings
 		for exp in  logo fallback-logo; do
-			if grep -q ${exp} /etc/gdm3/greeter.gsettings ; then
-				sed -i "s@^${exp}@#${exp}@" /etc/gdm3/greeter.gsettings
+			if grep -q ${exp} /etc/gdm3/greeter.dconf-defaults ; then
+				sed -i "s@^${exp}@#${exp}@" /etc/gdm3/greeter.dconf-defaults
 			fi
 		done
-		if grep -q [org.gnome.login-screen] /etc/gdm3/greeter.gsettings ; then
-			sed -i "s@^\[org.gnome.login-screen\]@#[org.gnome.login-screen]@" /etc/gdm3/greeter.gsettings
+		if grep -q [org/gnome/login-screen] /etc/gdm3/greeter.dconf-defaults ; then
+			sed -i "s@^\[org/gnome/login-screen\]@#[org/gnome/login-screen]@" /etc/gdm3/greeter.dconf-defaults
 		fi
 	fi
 	if [ -f "/etc/lightdm/lightdm.conf" ] ; then
@@ -99,10 +99,4 @@ EOF
 	exit 1
 	;;
 esac
-
-
-
-#[org.gnome.login-screen]
-#logo='/usr/share/icons/gnome/48x48/places/debian-swirl.png'
-#fallback-logo='/usr/share/icons/gnome/48x48/places/debian-swirl.png'
 
