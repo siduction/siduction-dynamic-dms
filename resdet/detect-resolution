@@ -12,9 +12,10 @@ det_res=$(xrandr -q | head -n 1 | awk '{print $8.$9.$10}'| cut -d , -f1 )
 razor_theme=$(echo ${FLL_WALLPAPER} | cut -d / -f 5)
 
 # Searches if exists a wallpaper with desired resolution and
-# make a new symlink for it if true as default wallpaper
+# make a new link for it if true as default wallpaper
+# it's needed a hard link for cinnamon
 if [ -f "${FLL_WALLPAPER}/contents/images/${det_res}.jpg" ];then
-	ln -sf  ${FLL_WALLPAPER}/contents/images/${det_res}.jpg ${FLL_WALLPAPER}.jpg 
+	ln -f  ${FLL_WALLPAPER}/contents/images/${det_res}.jpg ${FLL_WALLPAPER}.jpg 
 	# razor qt part
 	if [ -s /usr/share/razor/themes/${razor_theme}/1024x768.jpg ];then
 		ln -sf  ${FLL_WALLPAPER}/contents/images/${det_res}.jpg \

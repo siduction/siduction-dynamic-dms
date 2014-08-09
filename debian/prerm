@@ -10,18 +10,6 @@ case "$1" in
 		fi
 	fi
 
-	if [ -f "/etc/gdm3/greeter.gsettings" ] ; then
-        # Uncomment logo stuff in debian greeter.gsettings
-		for exp in  logo fallback-logo ; do
-			if grep -q ^"#${exp}" /etc/gdm3/greeter.gsettings ; then
-				sed  -i  "s@^#${exp}@${exp}@" /etc/gdm3/greeter.gsettings
-			fi
-		done 
-		if grep -q  ^"#\[org.gnome.login-screen\]" /etc/gdm3/greeter.gsettings ; then
-			sed -i "s@^#\[org.gnome.login-screen\]@[org.gnome.login-screen]@" /etc/gdm3/greeter.gsettings
-		fi
-	fi
-
 	if [ -f "/etc/lightdm/lightdm.conf" ] ; then
 		sed -i "s@display-setup-script=.*@\#display-setup-script=@" "/etc/lightdm/lightdm.conf"
 	fi

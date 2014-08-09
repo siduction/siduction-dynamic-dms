@@ -1,3 +1,10 @@
+siduction-dynamic-dms (2014.08.09) UNRELEASED; urgency=low
+
+  * removed  siduction logo for gdm3 code
+  * changed symlink to desired wallpaper with a hard link for cinnamon
+
+ -- Ovidiu Angelescu <convbsd@siduction.org>  Sat, 09 Aug 2014 23:52:08 +0300
+
 siduction-dynamic-dms (2014.08.06) unstable; urgency=low
 
   [ Ovidiu Angelescu ]
