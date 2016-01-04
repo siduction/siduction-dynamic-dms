@@ -23,6 +23,11 @@ case "$1" in
 			sed -i '/detect-resolution.*/d' "/etc/kde4/kdm/Xsetup"
 		fi
 	fi
+	if [ -f "/etc/sddm/Xsession" ] ; then
+		if grep -q 'detect-resolution' /usr/share/sddm/scripts/Xsetup ; then
+			sed -i '/detect-resolution.*/d' "/usr/share/sddm/scripts/Xsetup"
+		fi
+	fi
 	;;
 	*)
 	echo "postinst called with unknown argument '$1'" >&2

@@ -30,6 +30,15 @@ EOF
 	if [ -f "/etc/slim.conf" ] ; then
 		sed -i "s@\# sessionstart_cmd.*@sessionstart_cmd exec /bin/sh /usr/share/siduction-dynamic-dms/detect-resolution@" "/etc/slim.conf"
 	fi
+	# This is triggered for ssdm
+	/etc/sddm
+	if [ -f "/etc/sddm/Xsession" ] ; then
+		if ! grep -q 'detect-resolution' /usr/local/share/sddm/scripts/Xsetup ; then
+			cat << "EOF" >> "/usr/local/share/sddm/scripts/Xsetup"
+/usr/share/siduction-dynamic-dms/detect-resolution
+EOF
+		fi
+	fi
 	;;
 	# This is triggered for kdm 
 	/etc/kde4/kdm)
@@ -66,7 +75,13 @@ EOF
 EOF
 		fi
 	fi
-
+	if [ -f "/etc/sddm/Xsession" ] ; then
+		if ! grep -q 'detect-resolution' /usr/local/share/sddm/scripts/Xsetup ; then
+			cat << "EOF" >> "/usr/local/share/sddm/scripts/Xsetup"
+/usr/share/siduction-dynamic-dms/detect-resolution
+EOF
+		fi
+	fi
 	;;
 	*)
 	echo "postinst called with unknown argument '$1'" >&2
