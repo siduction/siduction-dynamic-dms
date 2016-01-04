@@ -1,3 +1,9 @@
+siduction-dynamic-dms (2016.01.04.1) unstable; urgency=low
+
+  * fixed Xsetup location in postinst
+
+ -- Angelescu Ovidiu <convbsd@siduction.org>  Mon, 04 Jan 2016 19:54:25 +0200
+
 siduction-dynamic-dms (2016.01.04) unstable; urgency=low
 
   * added sddm support

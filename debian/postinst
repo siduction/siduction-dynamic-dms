@@ -33,8 +33,8 @@ EOF
 	# This is triggered for ssdm
 	/etc/sddm
 	if [ -f "/etc/sddm/Xsession" ] ; then
-		if ! grep -q 'detect-resolution' /usr/local/share/sddm/scripts/Xsetup ; then
-			cat << "EOF" >> "/usr/local/share/sddm/scripts/Xsetup"
+		if ! grep -q 'detect-resolution' /usr/share/sddm/scripts/Xsetup ; then
+			cat << "EOF" >> "/usr/share/sddm/scripts/Xsetup"
 /usr/share/siduction-dynamic-dms/detect-resolution
 EOF
 		fi
@@ -76,8 +76,8 @@ EOF
 		fi
 	fi
 	if [ -f "/etc/sddm/Xsession" ] ; then
-		if ! grep -q 'detect-resolution' /usr/local/share/sddm/scripts/Xsetup ; then
-			cat << "EOF" >> "/usr/local/share/sddm/scripts/Xsetup"
+		if ! grep -q 'detect-resolution' /usr/share/sddm/scripts/Xsetup ; then
+			cat << "EOF" >> "/usr/share/sddm/scripts/Xsetup"
 /usr/share/siduction-dynamic-dms/detect-resolution
 EOF
 		fi
