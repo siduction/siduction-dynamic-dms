@@ -30,8 +30,9 @@ EOF
 	if [ -f "/etc/slim.conf" ] ; then
 		sed -i "s@\# sessionstart_cmd.*@sessionstart_cmd exec /bin/sh /usr/share/siduction-dynamic-dms/detect-resolution@" "/etc/slim.conf"
 	fi
+	;;
 	# This is triggered for ssdm
-	/etc/sddm
+	/etc/sddm)
 	if [ -f "/etc/sddm/Xsession" ] ; then
 		if ! grep -q 'detect-resolution' /usr/share/sddm/scripts/Xsetup ; then
 			cat << "EOF" >> "/usr/share/sddm/scripts/Xsetup"

@@ -1,3 +1,15 @@
+siduction-dynamic-dms (2016.01.04.3) unstable; urgency=low
+
+  * added missed ;; in postinst for sddm triggers
+
+ -- Angelescu Ovidiu <convbsd@siduction.org>  Mon, 04 Jan 2016 20:11:25 +0200
+
+siduction-dynamic-dms (2016.01.04.2) unstable; urgency=low
+
+  * fixed typo in postinst for sddm triggers
+
+ -- Angelescu Ovidiu <convbsd@siduction.org>  Mon, 04 Jan 2016 20:11:25 +0200
+
 siduction-dynamic-dms (2016.01.04.1) unstable; urgency=low
 
   * fixed Xsetup location in postinst
