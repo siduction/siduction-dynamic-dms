@@ -6,7 +6,9 @@ fi
 
 # Detects actual display resolution
 # Warning ... works only with a single video card 
-det_res=$(xrandr -q | head -n 1 | awk '{print $8.$9.$10}'| cut -d , -f1 )
+xrandr -q > /usr/share/siduction-dynamic-dms/xoutput
+det_res=$(cat /usr/share/siduction-dynamic-dms/xoutput | head -n 1 | awk '{print $8.$9.$10}'| cut -d , -f1 )
+rm -f /usr/share/siduction-dynamic-dms/xoutput
 
 # Detects only wallpaper name for razor theme
 razor_theme=$(echo ${FLL_WALLPAPER} | cut -d / -f 5)

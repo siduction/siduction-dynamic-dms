@@ -1,3 +1,9 @@
+siduction-dynamic-dms (2016.01.31) unstable; urgency=low
+
+  * changed detect-resolution due to an unknown xrandr error message
+
+ -- Angelescu Ovidiu <convbsd@siduction.org>  Sun, 31 Jan 2016 18:02:25 +0200
+
 siduction-dynamic-dms (2016.01.04.3) unstable; urgency=low
 
   * added missed ;; in postinst for sddm triggers
