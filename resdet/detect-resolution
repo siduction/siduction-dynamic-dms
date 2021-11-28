@@ -14,7 +14,7 @@ rm -f /usr/share/siduction-dynamic-dms/xoutput
 # make a new link for it if true as default wallpaper
 # it's needed a hard link for cinnamon
 if [ -f "${FLL_WALLPAPER}/contents/images/${det_res}.svg" ];then
-	ln -f  ${FLL_WALLPAPER}/contents/images/${det_res}.svg /usr/share/walpapers/${FLL_WALLPAPER}.svg 
+	ln -f  ${FLL_WALLPAPER}/contents/images/${det_res}.svg /usr/share/walpapers/${FLL_DISTRO_CODENAME_SAFE}.svg 
 fi
 
 exit 0
