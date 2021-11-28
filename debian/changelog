@@ -1,3 +1,15 @@
+siduction-dynamic-dms (2021.02.100) unstable; urgency=medium
+
+  * fix typo
+
+ -- Torsten Wohlfarth <towo@siduction.org>  Sun, 28 Nov 2021 15:46:54 +0100
+
+siduction-dynamic-dms (2021.02.99) unstable; urgency=medium
+
+  * test new settings
+
+ -- Torsten Wohlfarth <towo@siduction.org>  Sun, 28 Nov 2021 14:54:06 +0100
+
 siduction-dynamic-dms (2016.01.31) unstable; urgency=low
 
   * changed detect-resolution due to an unknown xrandr error message
