@@ -6,9 +6,16 @@ fi
 
 # Detects actual display resolution
 # Warning ... works only with a single video card 
-xrandr -q > /usr/share/siduction-dynamic-dms/xoutput
-det_res=$(cat /usr/share/siduction-dynamic-dms/xoutput | head -n 1 | awk '{print $8.$9.$10}'| cut -d , -f1 )
-rm -f /usr/share/siduction-dynamic-dms/xoutput
+
+xorg=$(ps aux | grep -i xorg | grep -v grep)
+
+if [ -z "$xorg" ]; then
+	det_res=1920x1080
+else
+	xrandr -q > /usr/share/siduction-dynamic-dms/xoutput
+	det_res=$(cat /usr/share/siduction-dynamic-dms/xoutput | head -n 1 | awk '{print $8.$9.$10}'| cut -d , -f1 )
+	rm -f /usr/share/siduction-dynamic-dms/xoutput
+fi
 
 # Searches if exists a wallpaper with desired resolution and
 # make a new link for it if true as default wallpaper
@@ -18,6 +25,3 @@ if [ -f "${FLL_WALLPAPER}/contents/images/${det_res}.svg" ];then
 fi
 
 exit 0
-
-
-
