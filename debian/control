@@ -5,9 +5,9 @@ Maintainer: Ovidiu Angelescu <convbsd@siduction.net>
 Uploaders: Alf Gaida <agaida@siduction.org>
 Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.3
-Homepage: http://chili.siduction.org/projects/siduction/wiki/Siduction-dynamic-dms
-Vcs-Git: git://git.siduction.org/packages/siduction-repository/siduction-dynamic-dms.git
-Vcs-Browser: http://git.siduction.org/?p=packages/siduction-repository/siduction-dynamic-dms.git
+Homepage: https://github.com/siduction/siduction-dynamic-dms
+Vcs-Git: git://github.com/siduction/siduction-dynamic-dms.git
+Vcs-Browser: https://github.com/siduction/siduction-dynamic-dms.git
 
 Package: siduction-dynamic-dms
 Depends: ${misc:Depends}
